@@ -8,31 +8,39 @@ return {
     },
     config = function()
         require("neo-tree").setup({
+            close_if_last_window = true,
             window = {
                 width = 30,
                 mappings = {
-                    ['h'] = function(state)
+                    ["h"] = function(state)
                         local node = state.tree:get_node()
-                        if node.type == 'directory' and node:is_expanded() then
-                            require('neo-tree.sources.filesystem').toggle_directory(state, node)
+                        if node.type == "directory" and node:is_expanded() then
+                            require("neo-tree.sources.filesystem").toggle_directory(state, node)
                         else
-                            require('neo-tree.ui.renderer').focus_node(state, node:get_parent_id())
+                            require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
                         end
                     end,
-                    ['l'] = function(state)
+                    ["l"] = function(state)
                         local node = state.tree:get_node()
                         local path = node:get_id()
-                        if node.type == 'directory' then
+                        if node.type == "directory" then
                             if not node:is_expanded() then
-                                require('neo-tree.sources.filesystem').toggle_directory(state, node)
+                                require("neo-tree.sources.filesystem").toggle_directory(state, node)
                             elseif node:has_children() then
-                                require('neo-tree.ui.renderer').focus_node(state, node:get_child_ids()[1])
+                                require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
                             end
                         end
-                        if node.type == 'file' then
-                            require('neo-tree.utils').open_file(state, path)
+                        if node.type == "file" then
+                            require("neo-tree.utils").open_file(state, path)
                         end
-                    end,                
+                    end,
+                },
+            },
+            filesystem = {
+                filtered_items = {
+                    hide_dotfiles = false,
+                    hide_gitignored = false,
+                    hide_hidden = false,
                 },
             },
             event_handlers = {
@@ -43,7 +51,7 @@ return {
                         -- vimc.cmd("Neotree close")
                         -- OR
                         require("neo-tree.command").execute({ action = "close" })
-                    end
+                    end,
                 },
                 {
                     event = "neo_tree_buffer_enter",
@@ -57,7 +65,7 @@ return {
                         vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
                     end,
                 },
-            }
+            },
         })
         vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", {})
     end,

@@ -72,16 +72,16 @@ return {
                 theme = "rose-pine",
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
-                disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
+                disabled_filetypes = { "dashboard", "neo-tree", "Outline" },
+                ignore_focus = { "neo-tree" },
                 always_divide_middle = true,
             },
             sections = {
                 lualine_a = { mode },
                 lualine_b = { branch, diagnostics },
-                lualine_c = { "filename", "progress" },
-                -- lualine_x = { "encoding", "fileformat", "filetype" },
-                lualine_x = { diff, spaces, "encoding", filetype },
-                lualine_y = { location },
+                lualine_c = { diff },
+                lualine_x = { "filename", filetype },
+                lualine_y = { location, "progress"},
                 lualine_z = { customTime, customDate },
             },
             inactive_sections = {
@@ -96,6 +96,6 @@ return {
             winbar = {},
             inactive_winbar = {},
             extensions = {},
-        })       
+        })
     end
 }
