@@ -1,5 +1,12 @@
 return {
 	{
+		"echasnovski/mini.nvim",
+		version = false,
+		config = function()
+			require("mini.pairs").setup()
+		end,
+	},
+	{
 		"echasnovski/mini.starter",
 		version = "*",
 		config = function()
@@ -40,7 +47,7 @@ return {
 				items = {
 					new_section("Find file", "Telescope find_files", "Telescope"),
 					new_section("Recent files", "Telescope oldfiles", "Telescope"),
-					new_section("Grep text", "Telescope live_grep", "Telescope"),
+					-- new_section("Grep text", "Telescope live_grep", "Telescope"),
 					new_section("New file", "ene | startinsert", "Built-in"),
 					new_section("Quit", "qa", "Built-in"),
 				},

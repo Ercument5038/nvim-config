@@ -1,4 +1,8 @@
-vim.opt.guicursor = "a:blinkon1"
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
+vim.opt.guicursor = "a:block"
 vim.opt.cursorline = true
 
 vim.opt.nu = true
@@ -29,8 +33,11 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+
+vim.opt.colorcolumn = "80"
 
 vim.opt.cmdheight = 2
 
@@ -38,3 +45,4 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.showmode = false
+vim.opt.pumheight = 10

@@ -1,6 +1,9 @@
+-- how to add support for new language
+-- add formatter to formatters_by_ft()
+-- add lsp to server like xylsp = {}
+
 return {
 	{
-
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -52,7 +55,8 @@ return {
 
 			local servers = {
 				pyright = {},
-
+				html = {},
+				-- cssls = {},
 				lua_ls = {
 					settings = {
 						Lua = {
@@ -102,7 +106,10 @@ return {
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { { "ruff", "black" } },
+				html = { "prettier" },
+				css = { "prettier" },
+				javascript = { "prettier" },
 			},
 		},
 	},

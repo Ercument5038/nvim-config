@@ -35,7 +35,8 @@ return {
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-p>"] = cmp.mapping.select_prev_item(),
 
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<C-z>"] = cmp.mapping.confirm({ select = true }),
 
 				["<C-Space>"] = cmp.mapping.complete({}),
 
