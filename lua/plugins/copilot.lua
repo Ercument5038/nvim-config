@@ -1,26 +1,25 @@
 return {
 	{
 		"Exafunction/codeium.vim",
-		cmd = "Codeium",
+		event = "BufEnter",
 		config = function()
-			vim.keymap.set("i", "<C-z>", function()
+			vim.keymap.set("i", "<C-g>", function()
 				return vim.fn["codeium#Accept"]()
 			end, { expr = true, silent = true })
 
-			vim.keymap.set("i", "<C-y>", function()
-				return vim.fn["codeium#Accept"]()
-			end, { expr = true, silent = true })
-
-			vim.keymap.set("i", "<c-7>", function()
-				return vim.fn["codeium#CycleCompletions"](1)
-			end, { expr = true, silent = true })
-			vim.keymap.set("i", "<c-8>", function()
-				return vim.fn["codeium#CycleCompletions"](-1)
-			end, { expr = true, silent = true })
+			-- vim.keymap.set("i", "<c-;>", function()
+			-- 	return vim.fn["codeium#CycleCompletions"](1)
+			-- end, { expr = true, silent = true })
+			--
+			-- vim.keymap.set("i", "<c-,>", function()
+			-- 	return vim.fn["codeium#CycleCompletions"](-1)
+			-- end, { expr = true, silent = true })
 
 			vim.keymap.set("i", "<c-x>", function()
 				return vim.fn["codeium#Clear"]()
 			end, { expr = true, silent = true })
+
+			vim.keymap.set("n", "<leader>ct", ":Codeium Toggle<CR>", { silent = true })
 		end,
 	},
 }

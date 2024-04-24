@@ -24,7 +24,7 @@ vim.keymap.set("n", "WW", ":w!<CR>")
 vim.keymap.set("n", "E", "$")
 vim.keymap.set("n", "B", "0")
 vim.keymap.set("n", "<C-a>", "ggVG")
--- vim.keymap.set("n", "<F9>", ":!python3 % <CR>")
+vim.keymap.set("n", "<F9>", ":!python3 % <CR>")
 
 -- Visual Mode --
 vim.keymap.set("v", "<", "<gv")

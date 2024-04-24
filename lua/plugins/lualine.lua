@@ -23,6 +23,10 @@ return {
 			cond = hide_in_width,
 		}
 
+		local function codeium()
+			return vim.api.nvim_call_function("codeium#GetStatusString", {})
+		end
+
 		local mode = {
 			"mode",
 			fmt = function(str)
@@ -72,14 +76,13 @@ return {
 				theme = "rose-pine",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
-				disabled_filetypes = { "dashboard", "neo-tree", "Outline" },
-				ignore_focus = { "neo-tree" },
+				disabled_filetypes = { "dashboard", "Outline" },
 				always_divide_middle = true,
 			},
 			sections = {
 				lualine_a = { mode },
 				lualine_b = { branch, diagnostics },
-				lualine_c = { diff },
+				lualine_c = { codeium },
 				lualine_x = { "filename", filetype },
 				lualine_y = { location, "progress" },
 				lualine_z = { customTime, customDate },

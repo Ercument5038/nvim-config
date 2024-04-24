@@ -9,7 +9,7 @@ return {
 
 				build = "make",
 
-				cond = function()
+				config = function()
 					return vim.fn.executable("make") == 1
 				end,
 			},
@@ -25,12 +25,9 @@ return {
 					},
 				},
 				pickers = {
-					colorscheme = {
-						enable_preview = true,
-					},
-					find_files = {
-						hidden = true,
-					},
+					-- find_files = {
+					-- 	hidden = true,
+					-- },
 				},
 			})
 

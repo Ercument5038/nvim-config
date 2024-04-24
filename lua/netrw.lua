@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("filetype", {
 
 		-- edit new file
 		bind("n", "%")
+		bind("a", "%")
 
 		-- rename file
 		bind("r", "R")
