@@ -2,7 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>e", ":Ex<CR>", {})
 -- Manim Run
 --vim.keymap.set("n", "<F9>", ":w <CR> :!manim -pql % <CR> <CR>")
 
@@ -25,14 +24,13 @@ vim.keymap.set("n", "E", "$")
 vim.keymap.set("n", "B", "0")
 vim.keymap.set("n", "<C-a>", "ggVG")
 vim.keymap.set("n", "<F9>", ":!python3 % <CR>")
+vim.keymap.set("n", "<leader>p1", '"0p')
 
 -- Visual Mode --
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
-vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Insert Mode
 vim.keymap.set("i", "<C-H>", "<C-W>", { noremap = true })

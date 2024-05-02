@@ -20,6 +20,8 @@ return {
 			end, { expr = true, silent = true })
 
 			vim.keymap.set("n", "<leader>ct", ":Codeium Toggle<CR>", { silent = true })
+
+			vim.g.codeium_no_map_tab = 1
 		end,
 	},
 }

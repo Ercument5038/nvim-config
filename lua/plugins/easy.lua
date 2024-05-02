@@ -26,4 +26,15 @@ return {
 		-- 		require("btw").setup()
 		-- 	end,
 	},
+	{
+		"ngtuonghy/live-server-nvim",
+		event = "VeryLazy",
+		build = ":LiveServerInstall",
+		config = function()
+			require("live-server-nvim").setup({})
+			vim.keymap.set("n", "<leader>lt", function()
+				require("live-server-nvim").toggle()
+			end)
+		end,
+	},
 }
