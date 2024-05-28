@@ -14,7 +14,26 @@ return {
 					italic = false,
 				},
 			})
-			vim.cmd.colorscheme("rose-pine")
+			-- vim.cmd.colorscheme("rose-pine")
 		end,
+	},
+	{
+		"diegoulloao/neofusion.nvim",
+		priority = 1000,
+		config = true,
+		opts = {
+			italic = {
+				strings = false,
+				emphasis = false,
+				comments = false,
+				operators = false,
+				folds = false,
+			},
+		},
+	},
+	{
+		"scottmckendry/cyberdream.nvim",
+		priority = 1000,
+		config = true,
 	},
 }

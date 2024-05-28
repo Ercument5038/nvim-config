@@ -73,7 +73,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "rose-pine",
+				theme = "auto", -- colorscheme automatisch ändern
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "dashboard", "Outline" },
