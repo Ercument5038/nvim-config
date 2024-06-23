@@ -14,7 +14,7 @@ return {
 					italic = false,
 				},
 			})
-			-- vim.cmd.colorscheme("rose-pine")
+			vim.cmd.colorscheme("rose-pine")
 		end,
 	},
 	{
@@ -35,5 +35,9 @@ return {
 		"scottmckendry/cyberdream.nvim",
 		priority = 1000,
 		config = true,
+	},
+	{
+		"dgox16/oldworld.nvim",
+		priority = 1000,
 	},
 }

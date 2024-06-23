@@ -42,3 +42,5 @@ vim.opt.splitright = true
 
 vim.opt.showmode = false
 vim.opt.pumheight = 10
+
+vim.opt.timeoutlen = 250

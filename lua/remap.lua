@@ -19,11 +19,11 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "QQ", ":q!<CR>")
-vim.keymap.set("n", "WW", ":w!<CR>")
+vim.keymap.set("n", "WW", ":w!<CR>", { silent = true })
 vim.keymap.set("n", "E", "$")
 vim.keymap.set("n", "B", "0")
 vim.keymap.set("n", "<C-a>", "ggVG")
-vim.keymap.set("n", "<F9>", ":!python3 % <CR>")
+vim.keymap.set("n", "<F9>", ":!python % <CR>", { silent = true })
 vim.keymap.set("n", "<leader>p1", '"0p')
 
 -- Visual Mode --

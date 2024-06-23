@@ -1,5 +1,5 @@
 -- Define your color schemes
-local colorschemes = { "rose-pine", "neofusion", "cyberdream" }
+local colorschemes = { "rose-pine", "cyberdream", "oldworld" }
 
 -- Path to store the current colorscheme index
 local index_file = vim.fn.stdpath("cache") .. "/colorscheme_index"

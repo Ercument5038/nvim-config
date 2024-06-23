@@ -73,7 +73,7 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "auto", -- colorscheme automatisch ändern
+				-- theme = "auto", -- colorscheme automatisch ändern
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = { "dashboard", "Outline" },
@@ -84,7 +84,7 @@ return {
 				lualine_b = { branch, diagnostics },
 				lualine_c = { codeium },
 				lualine_x = { "filename", filetype },
-				lualine_y = { location, "progress" },
+				lualine_y = { "location", "progress" },
 				lualine_z = { customTime, customDate },
 			},
 			inactive_sections = {
