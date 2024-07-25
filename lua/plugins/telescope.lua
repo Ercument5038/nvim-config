@@ -25,9 +25,9 @@ return {
 					},
 				},
 				pickers = {
-					-- find_files = {
-					-- 	hidden = true,
-					-- },
+					find_files = {
+						hidden = true,
+					},
 				},
 			})
 
@@ -45,7 +45,7 @@ return {
 
 			vim.keymap.set("n", "<leader>sn", function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
-			end)
+			end, { desc = "search in config" })
 		end,
 	},
 }

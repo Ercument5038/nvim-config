@@ -1,6 +1,7 @@
 return {
 	{
 		"rose-pine/neovim",
+		lazy = false,
 		name = "rose-pine",
 		priority = 1000,
 		config = function()
@@ -19,8 +20,8 @@ return {
 	},
 	{
 		"diegoulloao/neofusion.nvim",
+		event = "VeryLazy",
 		priority = 1000,
-		config = true,
 		opts = {
 			italic = {
 				strings = false,
@@ -33,11 +34,13 @@ return {
 	},
 	{
 		"scottmckendry/cyberdream.nvim",
+		event = "VeryLazy",
 		priority = 1000,
-		config = true,
+		opts = {},
 	},
 	{
 		"dgox16/oldworld.nvim",
+		event = "VeryLazy",
 		priority = 1000,
 	},
 }

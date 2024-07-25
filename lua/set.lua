@@ -44,3 +44,11 @@ vim.opt.showmode = false
 vim.opt.pumheight = 10
 
 vim.opt.timeoutlen = 250
+
+-- change language to english
+vim.cmd("lan en")
+
+-- dont show built in colorschemes in picker/menu
+vim.cmd(
+	[[set wildignore+=blue.vim,darkblue.vim,delek.vim,desert.vim,elflord.vim,evening.vim,industry.vim,koehler.vim,lunaperche.vim,morning.vim,murphy.vim,pablo.vim,peachpuff.vim,quiet.vim,retrobox.vim,ron.vim,shine.vim,slate.vim,sorbet.vim,torte.vim,wildcharm.vim,zaibatsu.vim,zellner.vim]]
+)

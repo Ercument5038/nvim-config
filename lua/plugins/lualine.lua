@@ -23,9 +23,9 @@ return {
 			cond = hide_in_width,
 		}
 
-		local function codeium()
-			return vim.api.nvim_call_function("codeium#GetStatusString", {})
-		end
+		-- local function codeium()
+		-- 	return vim.api.nvim_call_function("codeium#GetStatusString", {})
+		-- end
 
 		local mode = {
 			"mode",

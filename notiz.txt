@@ -8,3 +8,35 @@ q: for normal command line editin
 or in command line ctrl-f to open the command line window
 
 gx für https://www.google.com
+
+alt + motion zb o in insert mode spart esc und wieder insert oder alt + p
+
+alles auswählen dann = machen für indenting
+
+gv to reselect last visual selection
+
+g_ end of the line excluding new line character
+
+ctrl+f in command mode opens the command histroy in a split
+
+ctrl+n für wort autocompletion builtin
+ctrl+x dann ctrl+f für filename/path autocompletion builtin
+
+gw in visual mode to wrap long lines of text
+
+o in visual mode jumps to the other side of the selection
+
+gi goes to the last place you inserted text in the current file
+
+. to repeat last edit motions
+
+ctrl+a if unmapped incremets the number
+
+ctrl+] Jump to the definition of the keyword under the cursor
+
+m[x] wo x register is setzt marks dort, mit '[x] geht man dorthin
+
+cht.sh für cheatsheets
+
+:vsplit term://pwsh für terminal
+ctrl+\ ctrl+n für normal mode in terminal

@@ -2,12 +2,11 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		version = false,
-		config = function()
-			require("mini.pairs").setup()
-		end,
+		opts = {},
 	},
 	{
 		"echasnovski/mini.starter",
+		enabled = false,
 		version = "*",
 		config = function()
 			local starter = require("mini.starter")

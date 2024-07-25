@@ -1,25 +1,25 @@
 return {
 	{
-		"efueyo/td.nvim",
-	},
-	{
-		"alec-gibson/nvim-tetris",
-	},
-	{
 		"eandrju/cellular-automaton.nvim",
-		-- config = function()
-		--     vim.keymap.set("n", "<leader>cmr", "<cmd>CellularAutomaton make_it_rain<CR>")
-		--     vim.keymap.set("n", "<leader>cgl", "<cmd>CellularAutomaton game_of_life<CR>")
-		--     vim.keymap.set("n", "<leader>csm", "<cmd>CellularAutomaton scramble<CR>")
-		-- end,
+		cmd = "CellularAutomaton",
 	},
 	{
 		"ThePrimeagen/vim-be-good",
+		cmd = "VimBeGood",
 	},
 	{
-		"jim-fx/sudoku.nvim",
+		"tamton-aquib/duck.nvim",
+		event = "VeryLazy",
 		config = function()
-			require("sudoku").setup({})
+			vim.keymap.set("n", "<leader>dd", function()
+				require("duck").hatch("ඞ")
+			end, {})
+			vim.keymap.set("n", "<leader>dk", function()
+				require("duck").cook()
+			end, {})
+			vim.keymap.set("n", "<leader>da", function()
+				require("duck").cook_all()
+			end, {})
 		end,
 	},
 }
