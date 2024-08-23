@@ -2,8 +2,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Manim Run
+-- exec file
 --vim.keymap.set("n", "<F9>", ":w <CR> :!manim -pql % <CR> <CR>")
+--vim.keymap.set("n", "<F9>", ":!python % <CR>")
 
 -- Normal Mode --
 vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Jump Left" })
@@ -13,8 +14,6 @@ vim.keymap.set("n", "<leader>l", "<C-w>l")
 vim.keymap.set("n", "<C-q>", "<C-v>")
 vim.keymap.set("n", "<leader>sw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader><leader>", ":so<CR>")
-vim.keymap.set("n", "<C-d>", "<C-d>")
-vim.keymap.set("n", "<C-u>", "<C-u>")
 vim.keymap.set("n", "<C-i>", "<C-i>zz")
 vim.keymap.set("n", "<C-o>", "<C-o>zz")
 vim.keymap.set("n", "n", "nzzzv")
@@ -24,7 +23,6 @@ vim.keymap.set("n", "QQ", ":q!<CR>")
 vim.keymap.set("n", "WW", ":w!<CR>")
 vim.keymap.set({ "n", "v" }, "E", "$")
 vim.keymap.set({ "n", "v" }, "B", "0")
-vim.keymap.set("n", "<F9>", ":!python % <CR>")
 vim.keymap.set("n", "G", "Gzz")
 vim.keymap.set("n", "x", [["_x]])
 vim.keymap.set("n", "vig", "ggVG")

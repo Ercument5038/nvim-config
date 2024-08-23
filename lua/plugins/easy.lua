@@ -23,7 +23,7 @@ return {
 	{
 		"letieu/btw.nvim",
 		opts = {
-			text = "I am Ercüment",
+			text = "",
 		},
 	},
 	{
@@ -47,4 +47,5 @@ return {
 	keys = {
 		{ "<leader>sk", "<cmd>Screenkey<cr>", desc = "Start Screen Key" },
 	},
+	{ "cuducos/spellfile.nvim" },
 }
