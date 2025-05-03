@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
+		tag = "0.1.8",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{
@@ -15,6 +15,7 @@ return {
 			},
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
 			},
 		},
 		config = function()
@@ -23,16 +24,18 @@ return {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
 					},
+					fzf = {},
 				},
 				pickers = {
 					find_files = {
 						hidden = true,
+						no_ignore = true,
 					},
 				},
 			})
 
-			pcall(require("telescope").load_extension, "fzf")
-			pcall(require("telescope").load_extension, "ui-select")
+			require("telescope").load_extension("fzf")
+			require("telescope").load_extension("ui-select")
 
 			local builtin = require("telescope.builtin")
 

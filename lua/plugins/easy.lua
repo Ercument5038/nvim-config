@@ -11,11 +11,9 @@ return {
 	},
 	{
 		"xiyaowong/transparent.nvim",
-		keys = { {
-			"<leader>tt",
-			":TransparentToggle<cr>",
-			desc = "Toggle Transparent Background",
-		} },
+		opts = {
+			vim.keymap.set("n", "<leader>tt", ":TransparentToggle<CR>"),
+		},
 	},
 	{
 		"tpope/vim-sleuth",
@@ -42,10 +40,27 @@ return {
 		event = "VeryLazy",
 		opts = { unstar_on_uninstall = true },
 	},
-	"NStefan002/screenkey.nvim",
-	version = "*",
-	keys = {
-		{ "<leader>sk", "<cmd>Screenkey<cr>", desc = "Start Screen Key" },
+	{
+		"NStefan002/screenkey.nvim",
+		version = "*",
+		opks = {
+			vim.keymap.set("n", "<leader>sk", ":Screenkey<CR>"),
+		},
 	},
 	{ "cuducos/spellfile.nvim" },
+	{
+		"jinh0/eyeliner.nvim",
+		opts = {
+			highlight_on_key = true,
+			dim = true,
+			vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = "#9ccfd8", bold = true, underline = true }),
+			vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = "#31748f", underline = true }),
+		},
+	},
+	{
+	    "nvzone/typr",
+	    dependencies = "nvzone/volt",
+	    opts = {},
+	    cmd = { "Typr", "TyprStats" },
+	}
 }

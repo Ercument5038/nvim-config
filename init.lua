@@ -13,5 +13,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("set")
 require("remap")
-require("lazy").setup("plugins", { change_detection = { enabled = false } })
 require("autocmd")
+require("lazy").setup("plugins", { change_detection = { enabled = false } })

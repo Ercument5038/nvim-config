@@ -55,8 +55,10 @@ return {
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			local servers = {
+				tinymist = {},
 				pyright = {},
 				html = {},
+				jsonls = {},
 				cssls = {},
 				lua_ls = {
 					settings = {
@@ -107,10 +109,12 @@ return {
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { { "ruff", "black" } },
+				python = { "ruff" },
 				html = { "prettier" },
 				css = { "prettier" },
 				javascript = { "prettier" },
+				json = { "prettier" },
+				-- typst = { "typstyle" },
 			},
 		},
 	},

@@ -9,3 +9,21 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "YankHighlight" })
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = { "*.txt", "*.typ" },
+	desc = "Wrapping text over the lines instead of straigh",
+	group = vim.api.nvim_create_augroup("ercu-spezial", { clear = true }),
+	callback = function()
+		vim.cmd("normal! ggVGgw")
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = { "*.css", "*.html" },
+	desc = "Reloading Colorizer because it sometimes doenst want to work",
+	group = vim.api.nvim_create_augroup("ercu-spezial", { clear = true }),
+	callback = function()
+		vim.cmd("ColorizerReloadAllBuffers")
+	end,
+})

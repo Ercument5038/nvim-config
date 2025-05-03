@@ -31,7 +31,7 @@ gi goes to the last place you inserted text in the current file
 
 ctrl-a if unmapped incremets the number
 
-ctrl-] Jump to the definition of the keyword under the cursor
+ctrl-] Jump to the definition of the keyword under the cursor or shift k in help
 
 m[x] wo x register is setzt marks dort, mit '[x] geht man dorthin 
 m[X] wo X register is setzt globale makrs dort, mit '[X] geht man dorthin
@@ -59,3 +59,13 @@ p = paragraph also mehrere zeilen voon text
 b = ( )
 B = { }
 t = tag also <as> </as>
+
+ctrl+ü bzw. ctrl+[ für normal mode
+
+ctrl+u in insert mode to delete everything, good for indenting
+
+g== in help file um code blöcke auszuführen
+
+:set shiftwidth=2 to change tapstop
+
+gd um zur definition zu springen
