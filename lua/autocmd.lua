@@ -27,3 +27,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		vim.cmd("ColorizerReloadAllBuffers")
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufRead", {
+	pattern = { "*.css", "*.html" },
+	desc = "Attaching Colorizer because it sucks and doesnt do it autmatically",
+	group = vim.api.nvim_create_augroup("ercu-spezial", { clear = true }),
+	callback = function()
+		vim.cmd("ColorizerAttachToBuffer")
+	end,
+})

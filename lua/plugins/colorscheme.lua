@@ -19,24 +19,9 @@ return {
 		end,
 	},
 	{
-		"diegoulloao/neofusion.nvim",
-		event = "VeryLazy",
-		priority = 1000,
-		opts = {
-			italic = {
-				strings = false,
-				emphasis = false,
-				comments = false,
-				operators = false,
-				folds = false,
-			},
-		},
-	},
-	{
 		"scottmckendry/cyberdream.nvim",
 		event = "VeryLazy",
 		priority = 1000,
-		opts = {},
 	},
 	{
 		"dgox16/oldworld.nvim",

@@ -1,10 +1,16 @@
 vim.opt.guicursor = "a:block"
 vim.opt.cursorline = true
 
+vim.g.have_nerd_font = true
+
+vim.opt.mouse = "a"
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.clipboard = "unnamedplus"
+vim.schedule(function()
+	vim.opt.clipboard = "unnamedplus"
+end)
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -15,7 +21,7 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("USERPROFILE") .. "/AppData/Local/nvim-data/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undir"
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false
@@ -31,7 +37,7 @@ vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 150
 
 vim.opt.colorcolumn = "80"
 
@@ -45,8 +51,12 @@ vim.opt.pumheight = 10
 
 vim.opt.timeoutlen = 250
 
+vim.o.inccommand = "split"
+
+vim.o.confirm = true
+
 -- change language to english
-vim.cmd("lan en")
+-- vim.cmd("lan en")
 
 -- dont show built in colorschemes in picker/menu
 vim.cmd(

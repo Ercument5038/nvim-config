@@ -1,11 +1,7 @@
 return {
 	{
 		"norcalli/nvim-colorizer.lua",
-		ft = "html, css",
-		opts = {
-			html = { mode = "foreground" },
-			css = { mode = "foreground" },
-		},
+		opts = {},
 	},
 	{
 		"ziontee113/color-picker.nvim",

@@ -1,5 +1,8 @@
 return {
 	{
+	  'NMAC427/guess-indent.nvim',
+	},
+	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -38,7 +41,7 @@ return {
 	{
 		"jsongerber/thanks.nvim",
 		event = "VeryLazy",
-		opts = { unstar_on_uninstall = true },
+		opts = { unstar_on_uninstall = false },
 	},
 	{
 		"NStefan002/screenkey.nvim",
@@ -53,9 +56,9 @@ return {
 		opts = {
 			highlight_on_key = true,
 			dim = true,
-			vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = "#9ccfd8", bold = true, underline = true }),
-			vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = "#31748f", underline = true }),
 		},
+		vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = "#9ccfd8", bold = true, underline = true }),
+		vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = "#31748f", underline = true }),
 	},
 	{
 	    "nvzone/typr",
