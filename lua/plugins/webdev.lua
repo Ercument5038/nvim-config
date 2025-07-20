@@ -18,6 +18,6 @@ return {
 	},
 	{
 		"mattn/emmet-vim", -- ctrl y + ,
-		ft = "html, css",
+		ft = "html, css, js",
 	},
 }

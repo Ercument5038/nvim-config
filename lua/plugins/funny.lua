@@ -22,4 +22,8 @@ return {
 			end, {})
 		end,
 	},
+	{
+		"szymonwilczek/vim-be-better",
+		cmd = "VimBeBetter",
+	},
 }

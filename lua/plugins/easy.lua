@@ -1,6 +1,6 @@
 return {
 	{
-	  'NMAC427/guess-indent.nvim',
+		"NMAC427/guess-indent.nvim",
 	},
 	{
 		"folke/todo-comments.nvim",
@@ -52,18 +52,25 @@ return {
 	},
 	{ "cuducos/spellfile.nvim" },
 	{
-		"jinh0/eyeliner.nvim",
-		opts = {
-			highlight_on_key = true,
-			dim = true,
-		},
-		vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = "#9ccfd8", bold = true, underline = true }),
-		vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = "#31748f", underline = true }),
+		"nvzone/typr",
+		dependencies = "nvzone/volt",
+		opts = {},
+		cmd = { "Typr", "TyprStats" },
 	},
 	{
-	    "nvzone/typr",
-	    dependencies = "nvzone/volt",
-	    opts = {},
-	    cmd = { "Typr", "TyprStats" },
-	}
+		"m4xshen/hardtime.nvim",
+		lazy = false,
+		dependencies = { "MunifTanjim/nui.nvim" },
+		opts = {},
+	},
+	{
+		"samiulsami/fFtT-highlights.nvim",
+		config = function()
+			---@module "fFtT-highlights"
+			---@type fFtT_highlights.opts
+			require("fFtT-highlights"):setup({
+				---See below for default configuration options
+			})
+		end,
+	},
 }

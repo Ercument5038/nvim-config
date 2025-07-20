@@ -18,21 +18,3 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 		vim.cmd("normal! ggVGgw")
 	end,
 })
-
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = { "*.css", "*.html" },
-	desc = "Reloading Colorizer because it sometimes doenst want to work",
-	group = vim.api.nvim_create_augroup("ercu-spezial", { clear = true }),
-	callback = function()
-		vim.cmd("ColorizerReloadAllBuffers")
-	end,
-})
-
-vim.api.nvim_create_autocmd("BufRead", {
-	pattern = { "*.css", "*.html" },
-	desc = "Attaching Colorizer because it sucks and doesnt do it autmatically",
-	group = vim.api.nvim_create_augroup("ercu-spezial", { clear = true }),
-	callback = function()
-		vim.cmd("ColorizerAttachToBuffer")
-	end,
-})
