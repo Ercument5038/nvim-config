@@ -55,6 +55,8 @@ vim.o.inccommand = "split"
 
 vim.o.confirm = true
 
+vim.o.conceallevel = 2
+
 -- change language to english
 -- vim.cmd("lan en")
 

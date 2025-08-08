@@ -14,23 +14,25 @@ return {
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
-
-		-- see above for full list of optional dependencies ☝️
 	},
 	---@module 'obsidian'
 	---@type obsidian.config
 	opts = {
 		workspaces = {
 			{
-				name = "personal",
-				path = "~/vaults/personal",
-			},
-			{
-				name = "work",
-				path = "~/vaults/work",
+				name = "second-brain",
+				path = "~/vault/",
 			},
 		},
-
-		-- see below for full list of options 👇
+		completion = {
+			blink = true,
+		},
+		ui = {
+			enable = true, -- set to false to disable all additional syntax features
+			checkboxes = {
+				[" "] = { char = "☐", hl_group = "ObsidianTodo" },
+				["x"] = { char = "✔", hl_group = "ObsidianDone" },
+			},
+		},
 	},
 }

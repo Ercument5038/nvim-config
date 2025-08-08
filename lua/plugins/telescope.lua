@@ -45,7 +45,7 @@ return {
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
 
 			vim.keymap.set("n", "<leader>sn", function()
-				builtin.find_files({ cwd = "~/dotfiles/nvim/.config/" })
+				builtin.find_files({ cwd = "~/dotfiles/.config/nvim/" })
 				-- builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end, { desc = "search in config" })
 		end,
