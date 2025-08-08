@@ -69,3 +69,6 @@ g== in help file um code blöcke auszuführen
 :set shiftwidth=2 to change tapstop
 
 gd um zur definition zu springen
+
+gm to go horizontally to the middle of the screen
+gM to go horizontally to the middle of the text
