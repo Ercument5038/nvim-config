@@ -20,6 +20,7 @@ return {
 	},
 	{
 		"tpope/vim-sleuth",
+		enabled = true,
 	},
 	{
 		"letieu/btw.nvim",
