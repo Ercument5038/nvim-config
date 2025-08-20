@@ -10,15 +10,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = { "*.txt", "*.typ" },
-	desc = "Wrapping text over the lines instead of straigh",
-	group = vim.api.nvim_create_augroup("ercu-spezial", { clear = true }),
-	callback = function()
-		vim.cmd("normal! ggVGgw")
-	end,
-})
-
 -- disable minipairs when inside obsidian vault
 
 local obsidian_vault = "/home/erc/vault/"

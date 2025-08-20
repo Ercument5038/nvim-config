@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 
 -- exec file
 -- vim.keymap.set("n", "<F9>", ":w <CR> :!manim -pql % <CR> <CR>")
--- vim.keymap.set("n", "<F9>", ":w <CR> :!python % <CR>")
+vim.keymap.set("n", "<F9>", ":w <CR> :!python % <CR>")
 -- vim.keymap.set({ "n", "t" }, "<leader>vv", ":Floaterminal <CR>")
 
 -- Normal Mode --

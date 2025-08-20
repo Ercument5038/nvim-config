@@ -47,7 +47,6 @@ local toggle_terminal = function()
 		if vim.bo[state.floating.buf].buftype ~= "terminal" then
 			vim.cmd.terminal()
 		end
-		vim.fn.chansend(vim.b.terminal_job_id, "love .\r\n")
 	else
 		vim.api.nvim_win_hide(state.floating.win)
 	end
