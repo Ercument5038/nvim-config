@@ -62,3 +62,5 @@ gm to go horizontally to the middle of the screen gM to go horizontally to the
 middle of the text
 
 use :verbose set shiftwidth? to get which option or what set the option 
+
+:cd %:h to change direcotry of the current file

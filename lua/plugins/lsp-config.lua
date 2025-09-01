@@ -167,6 +167,7 @@ return {
 				html = {},
 				jsonls = {},
 				cssls = {},
+				ts_ls = {},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
