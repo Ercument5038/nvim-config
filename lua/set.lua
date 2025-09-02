@@ -1,6 +1,8 @@
 vim.opt.guicursor = "a:block"
 vim.opt.cursorline = true
 
+vim.g.markdown_recommended_style = 0
+
 vim.g.have_nerd_font = true
 
 vim.opt.mouse = "a"
@@ -55,6 +57,7 @@ vim.o.inccommand = "split"
 
 vim.o.confirm = true
 
+-- makes # and other things invicible in markdown or other ft
 vim.o.conceallevel = 2
 
 -- change language to english
