@@ -28,23 +28,7 @@ return { -- Autocompletion
 				},
 			},
 			config = function()
-				local ls = require("luasnip")
-
-				vim.keymap.set({ "i" }, "<C-L>", function()
-					ls.expand()
-				end, { silent = true })
-				vim.keymap.set({ "i", "s" }, "<C-K>", function()
-					ls.jump(1)
-				end, { silent = true })
-				vim.keymap.set({ "i", "s" }, "<C-J>", function()
-					ls.jump(-1)
-				end, { silent = true })
-
-				vim.keymap.set({ "i", "s" }, "<C-E>", function()
-					if ls.choice_active() then
-						ls.change_choice(1)
-					end
-				end, { silent = true })
+				require("snippets")
 			end,
 			opts = {},
 		},
@@ -76,6 +60,20 @@ return { -- Autocompletion
 			--
 			-- See :h blink-cmp-config-keymap for defining your own keymap
 			preset = "super-tab",
+
+			["<Tab>"] = {
+				function(cmp)
+					if cmp.snippet_active() then
+						return cmp.accept()
+					else
+						return cmp.select_and_accept()
+					end
+				end,
+			},
+
+			-- disable ctrl k preset keymap
+			["<c-k>"] = false,
+			["<c-e>"] = false,
 
 			-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 			--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
