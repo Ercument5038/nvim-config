@@ -1,8 +1,5 @@
 return {
 	{
-		"NMAC427/guess-indent.nvim",
-	},
-	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -29,17 +26,6 @@ return {
 		},
 	},
 	{
-		"ngtuonghy/live-server-nvim",
-		event = "VeryLazy",
-		build = ":LiveServerInstall",
-		config = function()
-			require("live-server-nvim").setup({})
-			vim.keymap.set("n", "<leader>lt", function()
-				require("live-server-nvim").toggle()
-			end)
-		end,
-	},
-	{
 		"jsongerber/thanks.nvim",
 		event = "VeryLazy",
 		opts = { unstar_on_uninstall = false },
@@ -57,12 +43,6 @@ return {
 		dependencies = "nvzone/volt",
 		opts = {},
 		cmd = { "Typr", "TyprStats" },
-	},
-	{
-		"m4xshen/hardtime.nvim",
-		lazy = false,
-		dependencies = { "MunifTanjim/nui.nvim" },
-		opts = {},
 	},
 	{
 		"samiulsami/fFtT-highlights.nvim",

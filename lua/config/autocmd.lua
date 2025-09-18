@@ -10,17 +10,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- disable minipairs when inside obsidian vault
-
-local obsidian_vault = "/home/erc/vault/"
-
-vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
-	callback = function(args)
-		local file = vim.api.nvim_buf_get_name(args.buf)
-		if string.find(file, obsidian_vault, 1, true) then
-			vim.b[args.buf].minipairs_disable = true
-		else
-			vim.b[args.buf].minipairs_disable = false
-		end
+-- Custom Highligts for SecondBrain
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "#f6c177", bold = true })
+		vim.api.nvim_set_hl(0, "@markup.italic.markdown_inline", { fg = "#eb6f92", bold = true })
 	end,
 })

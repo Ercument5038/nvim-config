@@ -64,3 +64,6 @@ middle of the text
 use :verbose set shiftwidth? to get which option or what set the option 
 
 :cd %:h to change direcotry of the current file
+
+vimdiff mode
+vim/nvim -d und datein dann diffmode

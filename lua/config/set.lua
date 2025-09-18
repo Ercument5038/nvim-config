@@ -1,7 +1,7 @@
 vim.opt.guicursor = "a:block"
 vim.opt.cursorline = true
 
-vim.g.markdown_recommended_style = 0
+-- vim.g.markdown_recommended_style = 0
 
 vim.g.have_nerd_font = true
 

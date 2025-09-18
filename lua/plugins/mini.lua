@@ -16,7 +16,13 @@ return {
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup({ n_lines = 500 })
+			require("mini.surround").setup({
+				custom_surroundings = {
+					["b"] = { output = { left = "**", right = "**" } },
+					["i"] = { output = { left = "*", right = "*" } },
+				},
+				n_lines = 500,
+			})
 
 			require("mini.statusline").setup()
 

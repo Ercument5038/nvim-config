@@ -166,8 +166,8 @@ return {
 				pyright = {},
 				html = {},
 				jsonls = {},
-				cssls = {},
 				ts_ls = {},
+				cssls = {},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
@@ -198,6 +198,7 @@ return {
 				"typstyle",
 				"eslint",
 				"tailwindcss",
+				"ts_ls",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

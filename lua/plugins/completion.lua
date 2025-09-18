@@ -28,7 +28,7 @@ return { -- Autocompletion
 				},
 			},
 			config = function()
-				require("snippets")
+				require("snip")
 			end,
 			opts = {},
 		},
@@ -69,6 +69,7 @@ return { -- Autocompletion
 						return cmp.select_and_accept()
 					end
 				end,
+				"fallback",
 			},
 
 			-- disable ctrl k preset keymap
