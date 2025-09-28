@@ -168,6 +168,7 @@ return {
 				jsonls = {},
 				ts_ls = {},
 				cssls = {},
+				css_variables = {},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },

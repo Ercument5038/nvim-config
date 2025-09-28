@@ -58,7 +58,7 @@ vim.o.inccommand = "split"
 vim.o.confirm = true
 
 -- makes # and other things invicible in markdown or other ft
-vim.o.conceallevel = 2
+vim.o.conceallevel = 0
 
 -- change language to english
 -- vim.cmd("lan en")
