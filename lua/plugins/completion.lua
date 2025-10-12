@@ -3,6 +3,7 @@ return { -- Autocompletion
 	event = "VimEnter",
 	version = "1.*",
 	dependencies = {
+		{ "joelazar/blink-calc" },
 		-- Snippet Engine
 		{
 			"L3MON4D3/LuaSnip",
@@ -93,9 +94,13 @@ return { -- Autocompletion
 		},
 
 		sources = {
-			default = { "lsp", "path", "snippets", "lazydev" },
+			default = { "lsp", "path", "snippets", "lazydev", "calc" },
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+				calc = {
+					name = "Calc",
+					module = "blink-calc",
+				},
 			},
 		},
 

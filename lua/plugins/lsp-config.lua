@@ -165,6 +165,19 @@ return {
 				tinymist = {},
 				pyright = {},
 				html = {},
+				ruff = {
+					-- config to only format, no linting
+					init_options = {
+						settings = {
+							lint = { enable = false },
+							format = { enable = true },
+						},
+					},
+					-- on_attach = function(client, bufnr)
+					-- 	client.server_capabilities.documentFormattingProvider = true
+					-- 	client.handlers["textDocument/publishDiagnostics"] = function() end
+					-- end,
+				},
 				jsonls = {},
 				ts_ls = {},
 				cssls = {},
