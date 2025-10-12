@@ -207,7 +207,6 @@ return {
 				"lua_ls",
 				"prettier",
 				"pyright",
-				"ruff",
 				"tinymist",
 				"typstyle",
 				"eslint",
@@ -265,7 +264,7 @@ return {
 				-- javascript = { "prettierd", "prettier", stop_after_first = true },
 
 				lua = { "stylua" },
-				python = { "ruff" },
+				-- python = { "ruff" },
 				html = { "prettier" },
 				css = { "prettier" },
 				javascript = { "prettier" },

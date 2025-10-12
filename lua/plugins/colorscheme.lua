@@ -16,6 +16,7 @@ return {
 				},
 			})
 			vim.cmd.colorscheme("rose-pine")
+			-- Highlighting für SB distilling
 			vim.api.nvim_set_hl(0, "@markup.bold.markdown", { fg = "#f6c177", bold = true })
 			vim.api.nvim_set_hl(0, "@markup.italic.markdown", { fg = "#31748f", bold = true })
 		end,
