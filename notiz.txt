@@ -36,8 +36,8 @@ cht.sh für cheatsheets
 
 :vsplit term://pwsh für terminal ctrl-\ ctrl+n für normal mode in terminal
 
-<c-w>v oder <c-w>s für splitwindow vertical horizontal oder :sp oder :vs <c-w>
-= um alle spilts gleiche groß zu machen
+<c-w>v oder <c-w>s für splitwindow vertical horizontal oder :sp oder :vs 
+<c-w> = um alle spilts gleiche groß zu machen
 
 :setlocal spell spelllang=en_us enables spellcheck. ]s and [s navigate through
 misspelled words. z= suggests corrections, zg adds words, zw marks words as
@@ -46,15 +46,13 @@ incorrect. :set nospell disables spellcheck.
 vib for visual inner block ( ) and viB for visual inner block { adkflöjsdflk}
 
 Object selection w = ein word W = bis nächste leerzeichen s = ganze satz p =
-paragraph also mehrere zeilen voon text b = ( ) B = { } t = tag also <as> </as>
+paragraph also mehrere zeilen von text b = ( ) B = { } t = tag also <as> </as>
 
 ctrl+ü bzw. ctrl+[ für normal mode
 
 ctrl+u in insert mode to delete everything, good for indenting
 
 g== in help file um code blöcke auszuführen
-
-:set shiftwidth=2 to change tapstop
 
 gd um zur definition zu springen
 
