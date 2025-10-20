@@ -1,16 +1,9 @@
 return {
 	{
 		"stevearc/oil.nvim",
-		keys = {
-			{
-				"<leader>e",
-				":Oil<cr>",
-				desc = "Toggle Oil",
-			},
-		},
+		lazy = false,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {
-
 			default_file_explorer = true,
 			win_options = {
 				wrap = true,
