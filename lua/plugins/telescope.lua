@@ -29,6 +29,13 @@ return {
 					find_files = {
 						hidden = true,
 					},
+					help_tags = {
+						mappings = {
+							i = {
+								["<CR>"] = require("telescope.actions").select_vertical,
+							},
+						},
+					},
 				},
 			})
 
@@ -43,6 +50,7 @@ return {
 			vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
 			vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {})
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
+			vim.keymap.set("n", "<leader>fm", builtin.man_pages, {})
 
 			vim.keymap.set("n", "<leader>sn", function()
 				builtin.find_files({ cwd = "~/dotfiles/.config/nvim/" })
