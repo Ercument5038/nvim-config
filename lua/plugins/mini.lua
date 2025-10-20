@@ -1,6 +1,6 @@
 return {
 	{
-		"echasnovski/mini.nvim",
+		"nvim-mini/mini.nvim",
 		version = false,
 		config = function()
 			-- Better Around/Inside textobjects
@@ -32,6 +32,9 @@ return {
 			end
 
 			require("mini.pairs").setup({})
+
+			require("mini.icons").setup({})
+			MiniIcons.mock_nvim_web_devicons()
 		end,
 	},
 }
