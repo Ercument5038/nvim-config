@@ -2,6 +2,7 @@ return {
 	{
 		"norcalli/nvim-colorizer.lua",
 		opts = {},
+		enabled = true,
 	},
 	{
 		"ziontee113/color-picker.nvim",

@@ -24,8 +24,7 @@ return {
 				n_lines = 500,
 			})
 
-			require("mini.statusline").setup()
-
+			require("mini.statusline").setup({})
 			---@diagnostic disable-next-line: duplicate-set-field
 			MiniStatusline.section_location = function()
 				return "%2l│%-2v"
@@ -35,6 +34,17 @@ return {
 
 			require("mini.icons").setup({})
 			MiniIcons.mock_nvim_web_devicons()
+
+			require("mini.jump").setup({
+				silent = true,
+			})
+
+			-- If you need indentation highlighting
+			-- require("mini.indentscope").setup({
+			-- 	draw = {
+			-- 		animation = require("mini.indentscope").gen_animation.none(),
+			-- 	},
+			-- })
 		end,
 	},
 }

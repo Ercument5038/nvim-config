@@ -1,9 +1,21 @@
 return {
 	{
+		-- TODO:
+		-- TEST:
+		-- FIX:
+		-- WARN:
+		-- NOTE:
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
+		keys = {
+			{
+				"<leader>ft",
+				":TodoTelescope<cr>",
+				desc = "Search Todo Comments",
+			},
+		},
 	},
 	{
 		"numToStr/Comment.nvim",
@@ -12,7 +24,7 @@ return {
 	{
 		"xiyaowong/transparent.nvim",
 		opts = {
-			vim.keymap.set("n", "<leader>tt", ":TransparentToggle<CR>"),
+			vim.keymap.set("n", "<leader>tt", ":TransparentToggle<CR>", { desc = "Toggle Transparent Background" }),
 		},
 	},
 	{
@@ -34,7 +46,7 @@ return {
 		"NStefan002/screenkey.nvim",
 		version = "*",
 		opks = {
-			vim.keymap.set("n", "<leader>sk", ":Screenkey<CR>"),
+			vim.keymap.set("n", "<leader>sk", ":Screenkey<CR>", { desc = "Toggle Screenkey" }),
 		},
 	},
 	{ "cuducos/spellfile.nvim" },
@@ -43,15 +55,5 @@ return {
 		dependencies = "nvzone/volt",
 		opts = {},
 		cmd = { "Typr", "TyprStats" },
-	},
-	{
-		"samiulsami/fFtT-highlights.nvim",
-		config = function()
-			---@module "fFtT-highlights"
-			---@type fFtT_highlights.opts
-			require("fFtT-highlights"):setup({
-				---See below for default configuration options
-			})
-		end,
 	},
 }
