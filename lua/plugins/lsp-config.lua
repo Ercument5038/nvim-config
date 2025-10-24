@@ -180,7 +180,8 @@ return {
 				jsonls = {},
 				ts_ls = {},
 				cssls = {},
-				css_variables = {},
+				-- css_variables = {},
+				-- cssmodules_ls = {},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
