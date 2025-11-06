@@ -20,7 +20,6 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 require("config.set")
 require("config.remap")
-require("config.autocmd")
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -35,3 +34,5 @@ require("lazy").setup({
 	ui = { icons = {} },
 	change_detection = { enabled = false },
 })
+
+require("config.autocmd")
