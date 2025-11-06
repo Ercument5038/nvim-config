@@ -65,3 +65,5 @@ use :verbose set shiftwidth? to get which option or what set the option
 
 vimdiff mode
 vim/nvim -d und datein dann diffmode
+
+:noauto w to save without trigger any autocmds
