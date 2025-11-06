@@ -60,6 +60,8 @@ vim.o.confirm = true
 -- makes # and other things invicible in markdown or other ft
 vim.o.conceallevel = 0
 
+vim.o.exrc = true
+
 -- change language to english
 -- vim.cmd("lan en")
 
