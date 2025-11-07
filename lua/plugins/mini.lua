@@ -39,6 +39,12 @@ return {
 				silent = true,
 			})
 
+			-- To change the highlighting
+			-- HI Groups "MiniCursorword" "MiniCursorwordCurrent"
+			-- this example does not highlight the current word the cursor is on
+			-- vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
+			require("mini.cursorword").setup({})
+
 			-- If you need indentation highlighting
 			-- require("mini.indentscope").setup({
 			-- 	draw = {
