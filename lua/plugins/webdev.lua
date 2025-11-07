@@ -1,6 +1,7 @@
 return {
 	{
 		-- Maybe in the future change to mini.hipatterns
+		-- uses a method that is depricated and will be remove in 0.13
 		"catgoose/nvim-colorizer.lua",
 		event = "BufReadPre",
 		opts = {},
