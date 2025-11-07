@@ -1,6 +1,8 @@
 return {
 	{
-		"norcalli/nvim-colorizer.lua",
+		-- Maybe in the future change to mini.hipatterns
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
 		opts = {},
 		enabled = true,
 	},
