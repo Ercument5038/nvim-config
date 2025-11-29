@@ -188,6 +188,14 @@ return {
 					-- capabilities = {},
 					settings = {
 						Lua = {
+							runtime = {
+								version = "LuaJIT",
+							},
+							workspace = {
+								library = {
+									vim.api.nvim_get_runtime_file("", true),
+								},
+							},
 							completion = {
 								callSnippet = "Replace",
 							},
@@ -271,7 +279,7 @@ return {
 				json = { "prettier" },
 				bash = { "shfmt" },
 				javascriptreact = { "prettier" },
-				-- typst = { "typstyle" },
+				typst = { "typstyle" },
 			},
 		},
 	},
