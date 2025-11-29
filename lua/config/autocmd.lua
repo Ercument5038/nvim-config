@@ -29,11 +29,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "wincmd L",
 })
 
--- auto resize splits when terminal windows is resized
-vim.api.nvim_create_autocmd("VimResized", {
-	command = "wincim =",
-})
-
 -- restore cursor to file position in prvious editing session
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function(args)
