@@ -13,13 +13,13 @@ return {
 		config = function()
 			vim.keymap.set("n", "<leader>dd", function()
 				require("duck").hatch("ඞ")
-			end, {})
+			end, { desc = "Spawn a duck" })
 			vim.keymap.set("n", "<leader>dk", function()
 				require("duck").cook()
-			end, {})
+			end, { desc = "Cook a duck" })
 			vim.keymap.set("n", "<leader>da", function()
 				require("duck").cook_all()
-			end, {})
+			end, { desc = "Cook all ducks" })
 		end,
 	},
 	{
