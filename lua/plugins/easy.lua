@@ -56,4 +56,7 @@ return {
 		opts = {},
 		cmd = { "Typr", "TyprStats" },
 	},
+	{
+		"tpope/vim-repeat",
+	},
 }
