@@ -180,6 +180,7 @@ return {
 				jsonls = {},
 				ts_ls = {},
 				cssls = {},
+				qmlls = {},
 				-- css_variables = {},
 				-- cssmodules_ls = {},
 				lua_ls = {
