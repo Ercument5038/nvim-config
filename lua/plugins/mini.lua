@@ -10,6 +10,7 @@ return {
 			--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
 			--  - ci'  - [C]hange [I]nside [']quote
 			require("mini.ai").setup({ n_lines = 500 })
+			require("mini.comment").setup({})
 
 			-- Add/delete/replace surroundings (brackets, quotes, etc.)
 			--
@@ -30,7 +31,16 @@ return {
 				return "%2l│%-2v"
 			end
 
-			require("mini.pairs").setup({})
+			-- require("mini.pick").setup({})
+
+			-- require("mini.pairs").setup({ modes = { command = true } })
+			--
+			-- require("mini.keymap").setup({})
+			-- -- On `<CR>` try to accept current completion item, fall back to accounting
+			-- -- for pairs from 'mini.pairs'
+			-- MiniKeymap.map_multistep("i", "<CR>", { "pmenu_accept", "minipairs_cr" })
+			-- -- On `<BS>` just try to account for pairs from 'mini.pairs'
+			-- MiniKeymap.map_multistep("i", "<BS>", { "minipairs_bs" })
 
 			require("mini.icons").setup({})
 			MiniIcons.mock_nvim_web_devicons()
@@ -38,12 +48,29 @@ return {
 			require("mini.jump").setup({
 				silent = true,
 			})
+			require("mini.extra").setup({})
+
+			local hipatterns = require("mini.hipatterns")
+			local hi_words = MiniExtra.gen_highlighter.words
+			hipatterns.setup({
+				highlighters = {
+					-- Highlight a fixed set of common words. Will be highlighted in any place,
+					-- not like "only in comments".
+					fixme = hi_words({ "FIXME", "Fixme", "fixme" }, "MiniHipatternsFixme"),
+					hack = hi_words({ "HACK", "Hack", "hack" }, "MiniHipatternsHack"),
+					todo = hi_words({ "TODO", "Todo", "todo" }, "MiniHipatternsTodo"),
+					note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsNote"),
+
+					-- Highlight hex color string (#aabbcc) with that color as a background
+					hex_color = hipatterns.gen_highlighter.hex_color(),
+				},
+			})
 
 			-- To change the highlighting
 			-- HI Groups "MiniCursorword" "MiniCursorwordCurrent"
 			-- this example does not highlight the current word the cursor is on
 			-- vim.api.nvim_set_hl(0, 'MiniCursorwordCurrent', {})
-			require("mini.cursorword").setup({})
+			-- require("mini.cursorword").setup({})
 
 			-- If you need indentation highlighting
 			-- require("mini.indentscope").setup({

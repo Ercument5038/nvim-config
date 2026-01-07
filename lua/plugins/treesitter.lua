@@ -51,7 +51,16 @@ return {
 					pcall(vim.treesitter.start, buf, lang)
 
 					-- Enable treesitter indentation
-					vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					-- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+					if event.match == "qml" then
+						vim.bo[buf].indentexpr = "" -- Turn off the broken treesitter indent
+						vim.bo[buf].cindent = true -- Turn on C-style indent (Handles { } correctly)
+						vim.bo[buf].autoindent = true
+					else
+						-- For everything else, use Treesitter
+						vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+					end
 
 					-- Install missing parsers (async, no-op if already installed)
 					ts.install({ lang })
@@ -61,14 +70,6 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
-		config = function()
-			require("nvim-ts-autotag").setup({
-				opts = {
-					enable_close = true, -- Auto close tags
-					enable_rename = true, -- Auto rename pairs of tags
-					enable_close_on_slash = false, -- Auto close on trailing </
-				},
-			})
-		end,
+		opts = {},
 	},
 }

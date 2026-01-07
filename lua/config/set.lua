@@ -43,7 +43,7 @@ vim.opt.updatetime = 150
 
 vim.opt.colorcolumn = "80"
 
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -61,6 +61,8 @@ vim.o.confirm = true
 vim.o.conceallevel = 0
 
 vim.o.exrc = true
+
+vim.o.virtualedit = "block"
 
 -- change language to english
 -- vim.cmd("lan en")

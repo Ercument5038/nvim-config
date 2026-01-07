@@ -28,6 +28,13 @@ vim.keymap.set("n", "x", [["_x]])
 vim.keymap.set("n", "vig", "ggVG")
 vim.keymap.set("n", "yig", ":%y<CR>")
 vim.keymap.set("n", "dig", ":%d<CR>")
+
+local new_scratch_buffer = function()
+	vim.api.nvim_win_set_buf(0, vim.api.nvim_create_buf(true, true))
+end
+
+vim.keymap.set("n", "<leader>bs", new_scratch_buffer, { desc = "Create Scratch Buffer" })
+
 -- used by harpoon
 -- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 -- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -43,6 +50,14 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]]) -- P macht das gleiche
+
+-- vim.keymap.set("x", "an", function()
+-- 	vim.lsp.buf.selection_range(-1)
+-- end, { desc = "vim.lsp.buf.selection_range('outer')" })
+--
+-- vim.keymap.set("x", "in", function()
+-- 	vim.lsp.buf.selection_range(-1)
+-- end, { desc = "vim.lsp.buf.selection_range('in')" })
 
 -- Insert Mode
 vim.keymap.set("i", "<C-H>", "<C-W>", { noremap = true })
