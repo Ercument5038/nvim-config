@@ -36,6 +36,7 @@ now_if_args(function()
 		"bash",
 		"luadoc",
 		"typst",
+		"hyprlang",
 		-- Add here more languages with which you want to use tree-sitter
 		-- To see available languages:
 		-- - Execute `:=require('nvim-treesitter').get_available()`
@@ -66,7 +67,7 @@ now_if_args(function()
 	require("nvim-ts-autotag").setup()
 end)
 
--- Language servers ===========================================================
+-- Completion =================================================================
 
 now_if_args(function()
 	add({
@@ -170,6 +171,8 @@ now_if_args(function()
 	})
 end)
 
+-- Language servers ===========================================================
+
 now_if_args(function()
 	add("WhoIsSethDaniel/mason-tool-installer.nvim")
 	add("folke/lazydev.nvim")
@@ -251,6 +254,7 @@ now_if_args(function()
 		ensure_installed = ensure_installed,
 	})
 
+	-- automatically enable installed language servers by mason
 	require("mason-lspconfig").setup({
 		automatic_enable = true,
 	})
