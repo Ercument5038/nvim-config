@@ -1,4 +1,4 @@
-local set = vim.opt_local
+local set = vim.bo
 set.tabstop = 2
 set.softtabstop = 2
 set.shiftwidth = 2
