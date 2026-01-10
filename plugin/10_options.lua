@@ -1,7 +1,3 @@
--- cant find help for these guys
--- vim.g.markdown_recommended_style = 0
-vim.g.have_nerd_font = true
-
 -- General ====================================================================
 vim.g.mapleader = " " -- Use `<Space>` as <Leader> key
 
@@ -12,7 +8,7 @@ vim.o.undofile = true -- Enable persistent undo
 
 vim.o.guicursor = "a:block" -- In all modes cursor is a block
 
--- vim.o.timeoutlen = 250             -- 250ms to combo a keymap
+-- vim.o.timeoutlen = 250   -- 250ms to combo a keymap
 
 vim.o.exrc = true -- Enable .nvim.lua project specific config
 
