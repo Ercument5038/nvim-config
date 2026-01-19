@@ -38,12 +38,16 @@ now_if_args(function()
 		"typst",
 		"hyprlang",
 		"rasi",
+		"typescript",
 		-- Add here more languages with which you want to use tree-sitter
 		-- To see available languages:
 		-- - Execute `:=require('nvim-treesitter').get_available()`
 		-- - Visit 'SUPPORTED_LANGUAGES.md' file at
 		--   https://github.com/nvim-treesitter/nvim-treesitter/blob/main
 	}
+
+	vim.treesitter.language.register("javascript", "javascriptreact")
+
 	local isnt_installed = function(lang)
 		return #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", false) == 0
 	end
@@ -311,6 +315,10 @@ later(function()
 	-- - `:h conform-options`
 	-- - `:h conform-formatters`
 	require("conform").setup({
+		default_format_opts = {
+			-- Allow formatting from LSP server if no dedicated formatter is available
+			lsp_format = "fallback",
+		},
 		format_on_save = function(bufnr)
 			local disable_filetypes = { c = true, cpp = true }
 			if disable_filetypes[vim.bo[bufnr].filetype] then
@@ -336,6 +344,7 @@ later(function()
 			bash = { "shfmt" },
 			javascriptreact = { "prettier" },
 			typst = { "typstyle" },
+			astro = { "prettier" },
 		},
 	})
 end)
