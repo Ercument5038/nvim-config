@@ -5,6 +5,8 @@ vim.o.mouse = "a" -- Enable mouse
 vim.o.mousescroll = "ver:25,hor:6" -- Customize mouse scroll
 vim.o.switchbuf = "usetab" -- Use already opened buffers when switching
 vim.o.undofile = true -- Enable persistent undo
+vim.o.swapfile = false -- Disable swapfiles
+vim.o.backup = false -- Disable backup when writing a file
 
 vim.o.guicursor = "a:block" -- In all modes cursor is a block
 
