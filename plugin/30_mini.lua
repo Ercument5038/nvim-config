@@ -173,7 +173,14 @@ later(function()
 end)
 
 now_if_args(function()
-	require("mini.files").setup({ windows = { preview = true } })
+	require("mini.files").setup({
+		content = {
+			filter = function(fs_entry)
+				return fs_entry.name ~= ".stfolder"
+			end,
+		},
+		windows = { preview = true },
+	})
 
 	local add_marks = function()
 		MiniFiles.set_bookmark("c", vim.fn.stdpath("config"), { desc = "Config" })
