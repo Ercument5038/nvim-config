@@ -145,12 +145,12 @@ now_if_args(function()
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "calc" },
 
-			per_filetype = {
-				lua = { inherit_defaults = true, "lazydev" },
-			},
+			-- per_filetype = {
+			-- 	lua = { inherit_defaults = true, "lazydev" },
+			-- },
 
 			providers = {
-				lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
+				-- lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
 				calc = {
 					name = "Calc",
 					module = "blink-calc",
@@ -180,67 +180,19 @@ end)
 
 now_if_args(function()
 	add("WhoIsSethDaniel/mason-tool-installer.nvim")
-	add("folke/lazydev.nvim")
-	add("j-hui/fidget.nvim")
+	-- add("folke/lazydev.nvim")
+	-- add("j-hui/fidget.nvim")
 	add("mason-org/mason-lspconfig.nvim")
 	add("mason-org/mason.nvim")
 	add("neovim/nvim-lspconfig")
 
-	require("lazydev").setup({
-		library = {
-			"mini.nvim",
-			{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-		},
-	})
-	require("fidget").setup({})
+	-- require("fidget").setup({})
 	require("mason").setup()
 
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
 	vim.lsp.config("*", { capabilities = capabilities })
 
-	local servers = {
-		-- clangd = {},
-		-- gopls = {},
-		-- rust_analyzer = {},
-		-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
-		--
-		-- Some languages (like typescript) have entire language plugins that can be useful:
-		--    https://github.com/pmizio/typescript-tools.nvim
-		--
-		-- But for many setups, the LSP (`ts_ls`) will work just fine
-		-- ts_ls = {},
-		-- bashls = {},
-		-- tailwindcss = {},
-		-- tinymist = {},
-		-- pyright = {},
-		-- html = {},
-		-- jsonls = {},
-		-- cssls = {},
-		-- qmlls = {},
-		-- css_variables = {},
-		-- cssmodules_ls = {},
-		lua_ls = {
-			settings = {
-				Lua = {
-					runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
-					workspace = {
-						ingoreSubmodules = true,
-						library = {
-							vim.api.nvim_get_runtime_file("", true),
-						},
-					},
-					completion = {
-						callSnippet = "Replace",
-					},
-					-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-					-- diagnostics = { disable = { 'missing-fields' } },
-				},
-			},
-		},
-	}
-
-	local ensure_installed = vim.tbl_keys(servers or {})
-	vim.list_extend(ensure_installed, {
+	local ensure_installed = {
 		"bashls",
 		"stylua",
 		"cssls",
@@ -254,7 +206,8 @@ now_if_args(function()
 		"tailwindcss",
 		"ts_ls",
 		"qmlls",
-	})
+	}
+
 	require("mason-tool-installer").setup({
 		ensure_installed = ensure_installed,
 	})
@@ -293,7 +246,7 @@ now_if_args(function()
 			})
 		end
 	end
-	_G.Config.new_autocmd("LspAttach", nil, lsp_highlights, "Word under cursor highlighting")
+	-- _G.Config.new_autocmd("LspAttach", nil, lsp_highlights, "Word under cursor highlighting")
 
 	-- Use `:h vim.lsp.enable()` to automatically enable language server based on
 	-- the rules provided by 'nvim-lspconfig'.
@@ -392,10 +345,6 @@ now(function()
 	vim.api.nvim_set_hl(0, "@markup.italic.markdown", { fg = "#31748f", bold = true })
 
 	vim.cmd("color rose-pine")
-end)
-
-later(function()
-	add("https://github.com/romainl/vim-cool")
 end)
 
 later(function()
