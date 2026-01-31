@@ -45,7 +45,7 @@ now(function()
 	local notify = require("mini.notify")
 	notify.setup({
 		lsp_progress = {
-			enable = false,
+			enable = true,
 		},
 	})
 end)
@@ -55,27 +55,27 @@ now(function()
 	statusline.setup({
 		-- config for short section-location
 		-- content = {
-		-- 	active = function()
-		-- 		local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-		-- 		local git = MiniStatusline.section_git({ trunc_width = 40 })
-		-- 		local diff = MiniStatusline.section_diff({ trunc_width = 75 })
-		-- 		local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-		-- 		local lsp = MiniStatusline.section_lsp({ trunc_width = 75 })
-		-- 		local filename = MiniStatusline.section_filename({ trunc_width = 140 })
-		-- 		local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
-		-- 		local location = MiniStatusline.section_location({ trunc_width = math.huge })
-		-- 		local search = MiniStatusline.section_searchcount({ trunc_width = 75 })
+		--  active = function()
+		--    local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+		--    local git = MiniStatusline.section_git({ trunc_width = 40 })
+		--    local diff = MiniStatusline.section_diff({ trunc_width = 75 })
+		--    local diagnostics = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+		--    local lsp = MiniStatusline.section_lsp({ trunc_width = 75 })
+		--    local filename = MiniStatusline.section_filename({ trunc_width = 140 })
+		--    local fileinfo = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+		--    local location = MiniStatusline.section_location({ trunc_width = math.huge })
+		--    local search = MiniStatusline.section_searchcount({ trunc_width = 75 })
 		--
-		-- 		return MiniStatusline.combine_groups({
-		-- 			{ hl = mode_hl, strings = { mode } },
-		-- 			{ hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics, lsp } },
-		-- 			"%<", -- Mark general truncate point
-		-- 			{ hl = "MiniStatuslineFilename", strings = { filename } },
-		-- 			"%=", -- End left alignment
-		-- 			{ hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
-		-- 			{ hl = mode_hl, strings = { search, location } },
-		-- 		})
-		-- 	end,
+		--    return MiniStatusline.combine_groups({
+		--      { hl = mode_hl, strings = { mode } },
+		--      { hl = "MiniStatuslineDevinfo", strings = { git, diff, diagnostics, lsp } },
+		--      "%<", -- Mark general truncate point
+		--      { hl = "MiniStatuslineFilename", strings = { filename } },
+		--      "%=", -- End left alignment
+		--      { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+		--      { hl = mode_hl, strings = { search, location } },
+		--    })
+		--  end,
 		-- },
 	})
 end)
@@ -139,33 +139,42 @@ later(function()
 	require("mini.comment").setup()
 end)
 
--- later(function()
--- 	-- Customize post-processing of LSP responses for a better user experience.
--- 	-- Don't show 'Text' suggestions (usually noisy) and show snippets last.
--- 	local process_items_opts = { kind_priority = { Text = -1, Snippet = 99 } }
--- 	local process_items = function(items, base)
--- 		return MiniCompletion.default_process_items(items, base, process_items_opts)
--- 	end
--- 	require("mini.completion").setup({
--- 		lsp_completion = {
--- 			-- Without this config autocompletion is set up through `:h 'completefunc'`.
--- 			-- Although not needed, setting up through `:h 'omnifunc'` is cleaner
--- 			-- (sets up only when needed) and makes it possible to use `<C-u>`.
--- 			source_func = "omnifunc",
--- 			auto_setup = false,
--- 			process_items = process_items,
--- 		},
--- 	})
+later(function()
+	require("mini.cursorword").setup({
+		delay = 3000,
+	})
+
+	vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { link = "LspReferenceText" })
+	vim.api.nvim_set_hl(0, "MiniCursorword", { link = "LspReferenceText" })
+end)
+
+-- now_if_args(function()
+--  -- Customize post-processing of LSP responses for a better user experience.
+--  -- Don't show 'Text' suggestions (usually noisy) and show snippets last.
+--  local process_items_opts = { kind_priority = { Text = -1, Snippet = 99 } }
+--  local process_items = function(items, base)
+--    return MiniCompletion.default_process_items(items, base, process_items_opts)
+--  end
+--  require("mini.completion").setup({
+--    lsp_completion = {
+--      -- Without this config autocompletion is set up through `:h 'completefunc'`.
+--      -- Although not needed, setting up through `:h 'omnifunc'` is cleaner
+--      -- (sets up only when needed) and makes it possible to use `<C-u>`.
+--      source_func = "omnifunc",
+--      auto_setup = false,
+--      process_items = process_items,
+--    },
+--  })
 --
--- 	-- Set 'omnifunc' for LSP completion only when needed.
--- 	local on_attach = function(ev)
--- 		vim.bo[ev.buf].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
--- 	end
--- 	_G.Config.new_autocmd("LspAttach", nil, on_attach, "Set 'omnifunc'")
+--  -- Set 'omnifunc' for LSP completion only when needed.
+--  local on_attach = function(ev)
+--    vim.bo[ev.buf].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
+--  end
+--  _G.Config.new_autocmd("LspAttach", nil, on_attach, "Set 'omnifunc'")
 --
--- 	-- Advertise to servers that Neovim now supports certain set of completion and
--- 	-- signature features through 'mini.completion'.
--- 	vim.lsp.config("*", { capabilities = MiniCompletion.get_lsp_capabilities() })
+--  -- Advertise to servers that Neovim now supports certain set of completion and
+--  -- signature features through 'mini.completion'.
+--  vim.lsp.config("*", { capabilities = MiniCompletion.get_lsp_capabilities() })
 -- end)
 
 later(function()
