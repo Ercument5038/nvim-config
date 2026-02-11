@@ -181,12 +181,12 @@ end)
 now_if_args(function()
 	add("WhoIsSethDaniel/mason-tool-installer.nvim")
 	-- add("folke/lazydev.nvim")
-	-- add("j-hui/fidget.nvim")
+	add("j-hui/fidget.nvim")
 	add("mason-org/mason-lspconfig.nvim")
 	add("mason-org/mason.nvim")
 	add("neovim/nvim-lspconfig")
 
-	-- require("fidget").setup({})
+	require("fidget").setup({})
 	require("mason").setup()
 
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -368,6 +368,15 @@ end)
 later(function()
 	add("https://github.com/tamton-aquib/duck.nvim")
 end)
+
+-- later(function()
+-- 	add({
+-- 		source = "https://github.com/tamton-aquib/ads.nvim",
+-- 		depends = { "3rd/image.nvim" },
+-- 	})
+-- 	require("image").setup()
+-- 	require("ads").setup()
+-- end)
 
 -- Git ========================================================================
 
