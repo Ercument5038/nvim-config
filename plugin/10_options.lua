@@ -84,7 +84,7 @@ vim.o.inccommand = "split" -- Show preview when substituting
 local f = function()
 	vim.cmd("setlocal formatoptions-=c formatoptions-=o")
 end
-_G.Config.new_autocmd("FileType", nil, f, "Proper 'formatoptions'")
+Config.new_autocmd("FileType", nil, f, "Proper 'formatoptions'")
 
 -- Diagnostics ================================================================
 

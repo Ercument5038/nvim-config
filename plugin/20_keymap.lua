@@ -13,7 +13,7 @@ local xmap_leader = function(suffix, rhs, desc)
 	vim.keymap.set("x", "<Leader>" .. suffix, rhs, { desc = desc })
 end
 
-_G.Config.leader_group_clues = {
+Config.leader_group_clues = {
 	{ mode = "n", keys = "<Leader>b", desc = "+Buffer" },
 	{ mode = "n", keys = "<Leader>d", desc = "+Ducks" },
 	{ mode = "n", keys = "<Leader>e", desc = "+Explore/Edit" },

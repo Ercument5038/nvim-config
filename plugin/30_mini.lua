@@ -1,5 +1,5 @@
 local now, later = MiniDeps.now, MiniDeps.later
-local now_if_args = _G.Config.now_if_args
+local now_if_args = Config.now_if_args
 
 now(function()
 	require("mini.basics").setup({
@@ -170,7 +170,7 @@ end)
 --  local on_attach = function(ev)
 --    vim.bo[ev.buf].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
 --  end
---  _G.Config.new_autocmd("LspAttach", nil, on_attach, "Set 'omnifunc'")
+--  Config.new_autocmd("LspAttach", nil, on_attach, "Set 'omnifunc'")
 --
 --  -- Advertise to servers that Neovim now supports certain set of completion and
 --  -- signature features through 'mini.completion'.
@@ -197,7 +197,7 @@ now_if_args(function()
 		MiniFiles.set_bookmark("p", minideps_plugins, { desc = "Plugins" })
 		MiniFiles.set_bookmark("w", vim.fn.getcwd, { desc = "Working directory" })
 	end
-	_G.Config.new_autocmd("User", "MiniFilesExplorerOpen", add_marks, "Add bookmarks")
+	Config.new_autocmd("User", "MiniFilesExplorerOpen", add_marks, "Add bookmarks")
 end)
 
 later(function()
