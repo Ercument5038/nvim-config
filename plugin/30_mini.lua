@@ -31,7 +31,7 @@ now_if_args(function()
 	require("mini.misc").setup()
 
 	-- Change current working directory based on the current file path
-	MiniMisc.setup_auto_root({ ".git", ".stfolder" })
+	MiniMisc.setup_auto_root({ ".git", ".stfolder", ".venv" })
 
 	-- Restore latest cursor position on file open
 	MiniMisc.setup_restore_cursor()
@@ -45,7 +45,7 @@ now(function()
 	local notify = require("mini.notify")
 	notify.setup({
 		lsp_progress = {
-			enable = true,
+			enable = false,
 		},
 	})
 end)
