@@ -312,14 +312,6 @@ later(function()
 	add("rafamadriz/friendly-snippets")
 end)
 
--- Mason ======================================================================
-
-now_if_args(function()
-	add("mason-org/mason.nvim")
-
-	require("mason").setup()
-end)
-
 -- Colorscheme ================================================================
 
 now(function()
