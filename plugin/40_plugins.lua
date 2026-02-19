@@ -406,13 +406,6 @@ later(function()
 	add("mbbill/undotree")
 end)
 
--- Startup ====================================================================
-
-later(function()
-	add("dstein64/vim-startuptime")
-	vim.g.startupttime_tries = 10
-end)
-
 -- Linting ====================================================================
 
 now_if_args(function()
