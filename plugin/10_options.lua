@@ -12,8 +12,6 @@ vim.o.guicursor = "a:block" -- In all modes cursor is a block
 
 -- vim.o.timeoutlen = 250   -- 250ms to combo a keymap
 
-vim.o.exrc = true -- Enable .nvim.lua project specific config
-
 vim.opt.clipboard:append("unnamedplus") -- Use systemclipboard
 
 vim.opt.isfname:append("@-@") -- Add @ for Neovim to see as part of filename

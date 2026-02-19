@@ -16,6 +16,8 @@ end
 
 require("mini.deps").setup()
 
+vim.o.exrc = true -- Enable .nvim.lua project specific config
+
 _G.Config = {}
 
 local gr = vim.api.nvim_create_augroup("custom-config", {})
