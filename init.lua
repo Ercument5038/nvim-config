@@ -16,8 +16,6 @@ end
 
 require("mini.deps").setup()
 
-vim.o.exrc = true -- Enable .nvim.lua project specific config
-
 _G.Config = {}
 
 local gr = vim.api.nvim_create_augroup("custom-config", {})
@@ -27,3 +25,7 @@ Config.new_autocmd = function(event, pattern, callback, desc)
 end
 
 Config.now_if_args = vim.fn.argc(-1) > 0 and MiniDeps.now or MiniDeps.later
+
+-- Options that need to be set before plugins/ dir because of :h startup
+
+vim.o.exrc = true -- Enable .nvim.lua project specific config
