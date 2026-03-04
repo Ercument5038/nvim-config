@@ -16,8 +16,7 @@
 -- See `:h mini.nvim-buffer-local-config` and `:h mini.nvim-disabling-recipes`.
 
 -- Enable spelling
--- vim.cmd("setlocal spell")
--- vim.cmd("setlocal spelllang=en,de_at")
+-- vim.cmd("setlocal spell spelllang=en,de_at")
 
 -- Enable wrap for window
 vim.cmd("setlocal wrap")
