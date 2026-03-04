@@ -333,8 +333,8 @@ now(function()
 		},
 	})
 
-	vim.api.nvim_set_hl(0, "@markup.bold.markdown", { fg = "#f6c177", bold = true })
-	vim.api.nvim_set_hl(0, "@markup.italic.markdown", { fg = "#31748f", bold = true })
+	vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "#191724", bg = "#f6c177", bold = true })
+	vim.api.nvim_set_hl(0, "@markup.italic.markdown_inline", { bg = "#31748f", bold = true })
 
 	vim.cmd("color rose-pine")
 end)
