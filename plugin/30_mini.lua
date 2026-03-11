@@ -31,7 +31,8 @@ now_if_args(function()
 	require("mini.misc").setup()
 
 	-- Change current working directory based on the current file path
-	MiniMisc.setup_auto_root({ ".git", ".stfolder", ".venv" })
+	-- local folder = { ".git", ".stfolder", ".venv" }
+	-- MiniMisc.setup_auto_root({ ".git", ".stfolder", ".venv" })
 
 	-- Restore latest cursor position on file open
 	MiniMisc.setup_restore_cursor()
@@ -254,6 +255,7 @@ later(function()
 end)
 
 later(function()
+	vim.env.RIPGREP_CONFIG_PATH = vim.fn.expand("~/.config/ripgrep/config")
 	require("mini.pick").setup()
 end)
 
