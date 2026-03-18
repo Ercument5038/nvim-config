@@ -72,110 +72,6 @@ now_if_args(function()
 	require("nvim-ts-autotag").setup()
 end)
 
--- Completion =================================================================
-
--- now_if_args(function()
--- 	add({
--- 		source = "saghen/blink.cmp",
--- 		checkout = "v1.8.0",
--- 		depends = { "joelazar/blink-calc" },
--- 	})
---
--- 	local blink = require("blink.cmp")
--- 	blink.setup({
--- 		keymap = {
--- 			-- 'default' (recommended) for mappings similar to built-in completions
--- 			--   <c-y> to accept ([y]es) the completion.
--- 			--    This will auto-import if your LSP supports it.
--- 			--    This will expand snippets if the LSP sent a snippet.
--- 			-- 'super-tab' for tab to accept
--- 			-- 'enter' for enter to accept
--- 			-- 'none' for no mappings
--- 			--
--- 			-- For an understanding of why the 'default' preset is recommended,
--- 			-- you will need to read `:help ins-completion`
--- 			--
--- 			-- No, but seriously. Please read `:help ins-completion`, it is really good!
--- 			--
--- 			-- All presets have the following mappings:
--- 			-- <tab>/<s-tab>: move to right/left of your snippet expansion
--- 			-- <c-space>: Open menu or open docs if already open
--- 			-- <c-n>/<c-p> or <up>/<down>: Select next/previous item
--- 			-- <c-e>: Hide menu
--- 			-- <c-k>: Toggle signature help
--- 			--
--- 			-- See :h blink-cmp-config-keymap for defining your own keymap
--- 			preset = "super-tab",
---
--- 			["<Tab>"] = {
--- 				function(cmp)
--- 					if cmp.snippet_active() then
--- 						return cmp.accept()
--- 					else
--- 						return cmp.select_and_accept()
--- 					end
--- 				end,
--- 				"fallback",
--- 			},
---
--- 			-- disable ctrl k preset keymap
--- 			["<c-k>"] = false,
--- 			["<c-e>"] = false,
--- 		},
---
--- 		appearance = {
--- 			-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
--- 			-- Adjusts spacing to ensure icons are aligned
--- 			nerd_font_variant = "normal",
--- 		},
---
--- 		completion = {
--- 			-- By default, you may press `<c-space>` to show the documentation.
--- 			-- Optionally, set `auto_show = true` to show the documentation after a delay.
--- 			documentation = { auto_show = false, auto_show_delay_ms = 500 },
--- 			-- if you want to change the appeae of the menu
--- 			-- https://cmp.saghen.dev/configuration/completion.html#menu
--- 			menu = {
--- 				draw = {
--- 					columns = { { "label", "label_description", gap = 1 }, { "kind" } },
--- 				},
--- 			},
--- 		},
---
--- 		sources = {
--- 			default = { "lsp", "path", "snippets", "buffer", "calc" },
---
--- 			-- per_filetype = {
--- 			-- 	lua = { inherit_defaults = true, "lazydev" },
--- 			-- },
---
--- 			providers = {
--- 				-- lazydev = { module = "lazydev.integrations.blink", score_offset = 100 },
--- 				calc = {
--- 					name = "Calc",
--- 					module = "blink-calc",
--- 				},
--- 			},
--- 		},
---
--- 		snippets = {
--- 			preset = "mini_snippets", -- ensure you have the `snippets` source (enabled by default)
--- 		},
---
--- 		-- Blink.cmp includes an optional, recommended rust fuzzy matcher,
--- 		-- which automatically downloads a prebuilt binary when enabled.
--- 		--
--- 		-- By default, we use the Lua implementation instead, but you may enable
--- 		-- the rust implementation via `'prefer_rust_with_warning'`
--- 		--
--- 		-- See :h blink-cmp-config-fuzzy for more information
--- 		fuzzy = { implementation = "lua" },
---
--- 		-- Shows a signature help window while you type arguments for a function
--- 		signature = { enabled = true },
--- 	})
--- end)
-
 -- Language servers ===========================================================
 
 now_if_args(function()
@@ -188,9 +84,6 @@ now_if_args(function()
 
 	require("fidget").setup({})
 	require("mason").setup()
-
-	-- local capabilities = require("blink.cmp").get_lsp_capabilities()
-	-- vim.lsp.config("*", { capabilities = capabilities })
 
 	local ensure_installed = {
 		"bashls",
