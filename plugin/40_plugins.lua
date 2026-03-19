@@ -82,7 +82,7 @@ now_if_args(function()
 	add("mason-org/mason.nvim")
 	add("neovim/nvim-lspconfig")
 
-	require("fidget").setup({})
+	-- require("fidget").setup({})
 	require("mason").setup()
 
 	local ensure_installed = {
