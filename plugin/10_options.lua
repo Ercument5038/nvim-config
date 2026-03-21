@@ -2,7 +2,7 @@
 vim.g.mapleader = " " -- Use `<Space>` as <Leader> key
 
 vim.o.mouse = "a" -- Enable mouse
-vim.o.mousescroll = "ver:25,hor:6" -- Customize mouse scroll
+vim.o.mousescroll = "ver:3,hor:6" -- Customize mouse scroll
 vim.o.switchbuf = "usetab" -- Use already opened buffers when switching
 vim.o.undofile = true -- Enable persistent undo
 vim.o.swapfile = false -- Disable swapfiles
@@ -36,11 +36,11 @@ vim.o.pumheight = 10 -- Make popup menu smaller
 vim.o.pummaxwidth = 100 -- Make popup menu not too wide
 vim.o.relativenumber = false -- Dont Show relative numbers
 vim.o.scrolloff = 10 -- Set scrolloff to 10 lines
-vim.o.shortmess = "CFOSWacosI" -- Disable some built-in completion messages
+vim.o.shortmess = "CFOSWacos" -- Disable some built-in completion messages
 vim.o.showmode = false -- Don't show mode in command line
 vim.o.signcolumn = "yes" -- Always show signcolumn (less flicker)
 vim.o.splitbelow = true -- Horizontal splits will be below
-vim.o.splitkeep = "screen" -- Reduce scroll during window split
+vim.o.splitkeep = "cursor" -- scroll relative to cursor when splitting window
 vim.o.splitright = true -- Vertical splits will be to the right
 vim.o.winborder = "single" -- Use border in floating windows
 vim.o.wrap = false -- Don't visually wrap lines (toggle with \w)
