@@ -293,10 +293,13 @@ later(function()
 	})
 end)
 
--- Undotree ===================================================================
+-- Standard Plugins ===================================================================
 
+-- later(function()
+-- 	add("mbbill/undotree")
+-- end)
 later(function()
-	add("mbbill/undotree")
+	vim.cmd("packadd nvim.undotree")
 end)
 
 -- Linting ====================================================================

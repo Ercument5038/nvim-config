@@ -251,6 +251,10 @@ later(function()
 	require("mini.move").setup()
 end)
 
+-- later(function()
+-- 	require("mini.operators").setup()
+-- end)
+
 later(function()
 	-- Create pairs not only in Insert, but also in Command line mode
 	require("mini.pairs").setup({ modes = { command = true } })

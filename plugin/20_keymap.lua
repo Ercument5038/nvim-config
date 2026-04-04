@@ -162,7 +162,8 @@ nmap_leader("da", function()
 end, "Cook all ducks")
 
 -- u is for Undotree
-nmap_leader("u", vim.cmd.UndotreeToggle, "Toggle UndoTree")
+-- nmap_leader("u", vim.cmd.UndotreeToggle, "Toggle UndoTree")
+nmap_leader("u", vim.cmd.Undotree, "Toggle UndoTree")
 
 -- v is for Visits
 local edit_by_rank = function(rank)
