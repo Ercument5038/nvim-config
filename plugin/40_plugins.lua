@@ -1,23 +1,24 @@
-local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
-local now_if_args = Config.now_if_args
+local add = vim.pack.add
+local now_if_args, later = Config.now_if_args, Config.later
+
+-- Standard Plugins ===========================================================
+
+later(function()
+	vim.cmd("packadd nvim.undotree")
+	vim.cmd("packadd nohlsearch")
+end)
 
 -- Tree-sitter ================================================================
 
 now_if_args(function()
+	local ts_update = function()
+		vim.cmd("TSUpdate")
+	end
+	Config.on_packchanged("nvim-treesitter", { "update" }, ts_update, ":TSUpdate")
+
 	add({
-		source = "nvim-treesitter/nvim-treesitter",
-		-- Update tree-sitter parser after plugin is updated
-		hooks = {
-			post_checkout = function()
-				vim.cmd("TSUpdate")
-			end,
-		},
-	})
-	add({
-		source = "nvim-treesitter/nvim-treesitter-textobjects",
-		-- Use `main` branch since `master` branch is frozen, yet still default
-		-- It is needed for compatibility with 'nvim-treesitter' `main` branch
-		checkout = "main",
+		"https://github.com/nvim-treesitter/nvim-treesitter",
+		"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	})
 
 	-- Define languages which will have parsers installed and auto enabled
@@ -68,21 +69,21 @@ now_if_args(function()
 	end
 	Config.new_autocmd("FileType", filetypes, ts_start, "Start tree-sitter")
 
-	add("windwp/nvim-ts-autotag")
+	add({ "https://github.com/windwp/nvim-ts-autotag" })
 	require("nvim-ts-autotag").setup()
 end)
 
 -- Language servers ===========================================================
 
 now_if_args(function()
-	add("WhoIsSethDaniel/mason-tool-installer.nvim")
-	-- add("folke/lazydev.nvim")
-	add("j-hui/fidget.nvim")
-	add("mason-org/mason-lspconfig.nvim")
-	add("mason-org/mason.nvim")
-	add("neovim/nvim-lspconfig")
+	add({ "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" })
+	-- add({ "folke/lazydev.nvim" })
+	add({ "https://github.com/j-hui/fidget.nvim" })
+	add({ "https://github.com/mason-org/mason-lspconfig.nvim" })
+	add({ "https://github.com/mason-org/mason.nvim" })
+	add({ "https://github.com/neovim/nvim-lspconfig" })
 
-	-- require("fidget").setup({})
+	-- require({ "fidget" }).setup({})
 	require("mason").setup()
 
 	local ensure_installed = {
@@ -110,37 +111,6 @@ now_if_args(function()
 		automatic_enable = true,
 	})
 
-	-- Similar behaivor can be achieved with mini.cursorword
-	local lsp_highlights = function(ev)
-		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-
-		if client and client.server_capabilities.documentHighlightProvider then
-			local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
-
-			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-				buffer = ev.buf,
-				group = highlight_augroup,
-				callback = vim.lsp.buf.document_highlight,
-			})
-
-			vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-				buffer = ev.buf,
-				group = highlight_augroup,
-				callback = vim.lsp.buf.clear_references,
-			})
-
-			vim.api.nvim_create_autocmd("LspDetach", {
-				group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
-				callback = function(ev2)
-					vim.lsp.buf.clear_references()
-					vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = ev2.buf })
-				end,
-				desc = "Remove lsp highlighting",
-			})
-		end
-	end
-	-- Config.new_autocmd("LspAttach", nil, lsp_highlights, "Word under cursor highlighting")
-
 	-- Use `:h vim.lsp.enable()` to automatically enable language server based on
 	-- the rules provided by 'nvim-lspconfig'.
 	-- Use `:h vim.lsp.config()` or 'after/lsp/' directory to configure servers.
@@ -154,7 +124,7 @@ end)
 -- Formatting =================================================================
 
 later(function()
-	add("stevearc/conform.nvim")
+	add({ "https://github.com/stevearc/conform.nvim" })
 
 	-- See also:
 	-- - `:h Conform`
@@ -202,15 +172,14 @@ end)
 -- 'mini.snippets' is designed to work with it as seamlessly as possible.
 -- See `:h MiniSnippets.gen_loader.from_lang()`.
 later(function()
-	add("rafamadriz/friendly-snippets")
+	add({ "https://github.com/rafamadriz/friendly-snippets" })
 end)
 
 -- Colorscheme ================================================================
 
-now(function()
+Config.now(function()
 	add({
-		source = "rose-pine/neovim",
-		name = "rose-pine",
+		{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 	})
 
 	local rosepine = require("rose-pine")
@@ -232,8 +201,10 @@ now(function()
 	vim.cmd("color rose-pine")
 end)
 
+-- Thanks =====================================================================
+
 later(function()
-	add("https://github.com/jsongerber/thanks.nvim")
+	add({ "https://github.com/jsongerber/thanks.nvim" })
 	local thanks = require("thanks")
 	thanks.setup({
 		star_on_install = false,
@@ -243,49 +214,41 @@ end)
 -- Fun ========================================================================
 
 later(function()
-	add("https://github.com/eandrju/cellular-automaton.nvim")
+	add({ "https://github.com/eandrju/cellular-automaton.nvim" })
 end)
 
 later(function()
-	add("https://github.com/szymonwilczek/vim-be-better")
+	add({ "https://github.com/szymonwilczek/vim-be-better" })
 end)
 
 later(function()
-	add("https://github.com/tamton-aquib/duck.nvim")
+	add({ "https://github.com/tamton-aquib/duck.nvim" })
 end)
-
--- later(function()
--- 	add({
--- 		source = "https://github.com/tamton-aquib/ads.nvim",
--- 		depends = { "3rd/image.nvim" },
--- 	})
--- 	require("image").setup()
--- 	require("ads").setup()
--- end)
 
 -- Git ========================================================================
 
 later(function()
-	add({
-		source = "https://github.com/kdheepak/lazygit.nvim",
-		depends = { "nvim-lua/plenary.nvim" },
-	})
+	add({ "https://github.com/nvim-lua/plenary.nvim" })
+	add({ "https://github.com/kdheepak/lazygit.nvim" })
 end)
 
 -- Views ======================================================================
 
 later(function()
-	-- add("https://github.com/OXY2DEV/markview.nvim")
-	add("https://github.com/OXY2DEV/helpview.nvim")
+	-- add({ "https://github.com/OXY2DEV/markview.nvim" })
+	add({ "https://github.com/OXY2DEV/helpview.nvim" })
 end)
 
 -- Typst ======================================================================
 
 later(function()
 	add({
-		source = "chomosuke/typst-preview.nvim",
-		checkout = "v1.4.1",
+		{
+			src = "https://github.com/chomosuke/typst-preview.nvim",
+			version = vim.version.range("1"),
+		},
 	})
+
 	local typstPreview = require("typst-preview")
 	typstPreview.setup({
 		follow_cursor = false,
@@ -293,19 +256,10 @@ later(function()
 	})
 end)
 
--- Standard Plugins ===================================================================
-
--- later(function()
--- 	add("mbbill/undotree")
--- end)
-later(function()
-	vim.cmd("packadd nvim.undotree")
-end)
-
 -- Linting ====================================================================
 
 now_if_args(function()
-	add("mfussenegger/nvim-lint")
+	add({ "https://github.com/mfussenegger/nvim-lint" })
 
 	local lint = require("lint")
 	lint.linters_by_ft = {

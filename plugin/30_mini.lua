@@ -1,5 +1,4 @@
-local now, later = MiniDeps.now, MiniDeps.later
-local now_if_args = Config.now_if_args
+local now, now_if_args, later = Config.now, Config.now_if_args, Config.later
 
 now(function()
 	require("mini.basics").setup({
@@ -196,8 +195,8 @@ now_if_args(function()
 
 	local add_marks = function()
 		MiniFiles.set_bookmark("c", vim.fn.stdpath("config"), { desc = "Config" })
-		local minideps_plugins = vim.fn.stdpath("data") .. "/site/pack/deps/opt"
-		MiniFiles.set_bookmark("p", minideps_plugins, { desc = "Plugins" })
+		local vimpack_plugins = vim.fn.stdpath("data") .. "/site/pack/core/opt"
+		MiniFiles.set_bookmark("p", vimpack_plugins, { desc = "Plugins" })
 		MiniFiles.set_bookmark("w", vim.fn.getcwd, { desc = "Working directory" })
 	end
 	Config.new_autocmd("User", "MiniFilesExplorerOpen", add_marks, "Add bookmarks")
