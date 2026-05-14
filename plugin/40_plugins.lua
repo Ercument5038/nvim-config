@@ -236,7 +236,7 @@ end)
 
 later(function()
 	-- add({ "https://github.com/OXY2DEV/markview.nvim" })
-	add({ "https://github.com/OXY2DEV/helpview.nvim" })
+	-- add({ "https://github.com/OXY2DEV/helpview.nvim" })
 end)
 
 -- Typst ======================================================================
