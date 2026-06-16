@@ -203,6 +203,10 @@ now_if_args(function()
 end)
 
 later(function()
+	require("mini.input").setup()
+end)
+
+later(function()
 	local hipatterns = require("mini.hipatterns")
 	local hi_words = MiniExtra.gen_highlighter.words
 	hipatterns.setup({
