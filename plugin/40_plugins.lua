@@ -76,12 +76,12 @@ end)
 -- Language servers ===========================================================
 
 now_if_args(function()
-	add({ "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" })
-	-- add({ "folke/lazydev.nvim" })
-	add({ "https://github.com/j-hui/fidget.nvim" })
-	add({ "https://github.com/mason-org/mason-lspconfig.nvim" })
-	add({ "https://github.com/mason-org/mason.nvim" })
 	add({ "https://github.com/neovim/nvim-lspconfig" })
+	add({ "https://github.com/mason-org/mason.nvim" })
+	add({ "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" })
+	add({ "https://github.com/mason-org/mason-lspconfig.nvim" })
+	add({ "https://github.com/j-hui/fidget.nvim" })
+	-- add({ "folke/lazydev.nvim" })
 
 	-- require({ "fidget" }).setup({})
 	require("mason").setup()
@@ -197,6 +197,11 @@ Config.now(function()
 
 	vim.api.nvim_set_hl(0, "@markup.strong.markdown_inline", { fg = "#191724", bg = "#f6c177", bold = true })
 	vim.api.nvim_set_hl(0, "@markup.italic.markdown_inline", { bg = "#31748f", bold = true })
+
+	Config.new_autocmd("ColorScheme", nil, function()
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+	end)
 
 	vim.cmd("color rose-pine")
 end)
