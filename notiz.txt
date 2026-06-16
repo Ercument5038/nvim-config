@@ -67,3 +67,5 @@ vimdiff mode
 vim/nvim -d und datein dann diffmode
 
 :noauto w to save without trigger any autocmds
+
+ZZ und ZR in normal mode 
